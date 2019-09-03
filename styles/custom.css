@@ -28,7 +28,7 @@
 	font-weight:bold;
 	padding:16px 37px;
 	text-decoration:none;
-	text-shadow:0px -1px 0px #283966;
+    text-shadow:0px -1px 0px #283966;
 }
 
 .playButton:hover {
@@ -44,4 +44,39 @@
 .playButton:active {
 	position:relative;
 	top:1px;
+}
+
+.content{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+#answer{
+    display: flex;
+    justify-content: space-between;
+}
+
+#random-generator{
+    width:150px;
+    height:150px;
+    background-color:#EEEEEE;
+    border-radius:50%;
+}
+#random{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.content > div{
+    min-width: 200px;
+}
+@media(max-width:1000px){
+    .content{
+        flex-direction: column;
+        justify-content: space-around;
+        min-height:400px;
+    }
 }
