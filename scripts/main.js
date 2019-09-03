@@ -19,7 +19,9 @@ function startGame(){
      
                 if(alphabetArray[ind] == letter){
                     // The letter we want
-                     console.log(letter);
+                    console.log(letter);
+                     secondsTimer();
+                     
                  }
             }, 100 + (500 * ind));
         })(i);
@@ -27,5 +29,18 @@ function startGame(){
      }
      
 }
+startGame();
 
-// startGame();
+function secondsTimer(){
+    let time = 15;
+    const myInterval = setInterval(function(){
+        let sec = time --;
+        console.log(sec)
+        if(sec <= 1){
+            console.log("stopped")
+            clearInterval(myInterval);
+        }
+
+    },1000)
+}
+
