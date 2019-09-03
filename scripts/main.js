@@ -188,6 +188,7 @@ function generateRandomLetter(){
 
 const alphabetString = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z";
 const alphabetArray = alphabetString.split(',');
+const randomAlphabetArray = alphabetArray.sort(()=> Math.random() -0.5);
 
 var limit = alphabetArray.length-1;
 
@@ -199,9 +200,8 @@ function startGame(){
         (function(ind) {
          
             setTimeout(function(){
-                console.log(alphabetArray[i]);
-                $('#unselected').text(`${alphabetArray[i]}`)
-                if(alphabetArray[ind] == letter){
+                $('#unselected').text(`${randomAlphabetArray[i]}`)
+                if(randomAlphabetArray[ind] == letter){
                     $('#random-generator').text(`${letter}`)
                      secondsTimer();
                      
