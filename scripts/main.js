@@ -89,11 +89,6 @@ const librayarray = [
         name: "uaParser",
         fact: "Lightweight JavaScript-based User-Agent string parser,"
     },
-    {
-        name: "video",
-        fact: "Universal video embed",
-
-    },
 
     {
         name: "vide",
