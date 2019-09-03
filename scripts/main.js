@@ -206,7 +206,7 @@ function startGame(){
                      secondsTimer();
                      
                  }
-            }, 100 + (500 * ind));
+            }, 100 + (100 * ind));
         })(i);
      
      }
