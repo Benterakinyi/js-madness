@@ -73,6 +73,13 @@
 .content > div{
     min-width: 200px;
 }
+
+#random-generator{
+	padding-top: 10px;
+	font-size: 90px;
+}
+
+
 @media(max-width:1000px){
     .content{
         flex-direction: column;
@@ -80,3 +87,5 @@
         min-height:400px;
     }
 }
+
+
