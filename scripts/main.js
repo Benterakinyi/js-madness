@@ -1,3 +1,4 @@
+// Business Logic
 function generateRandomLetter(){
     const number = Math.floor(Math.random()*Math.floor(26));
     return String.fromCharCode(65 + number);
@@ -29,7 +30,8 @@ function startGame(){
      }
      
 }
-startGame();
+
+// startGame();
 
 function secondsTimer(){
     let time = 15;
@@ -43,4 +45,9 @@ function secondsTimer(){
 
     },1000)
 }
+
+//  UI LOGIC
+$(document).ready(function(){
+    console.log('Hello world, jQuery works!')
+})
 
