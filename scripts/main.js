@@ -180,23 +180,24 @@ function generateRandomLetter(){
     return String.fromCharCode(65 + number);
 }
 
-const letter = generateRandomLetter().toLowerCase();
-console.log(`letter: ${letter}`)
+
 const alphabetString = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z";
 const alphabetArray = alphabetString.split(',');
 
 var limit = alphabetArray.length-1;
 
 function startGame(){
+    const letter = generateRandomLetter().toLowerCase();
+    console.log(`letter: ${letter}`)
+   
     for (let i=0;i<=limit;i++) {
         (function(ind) {
          
             setTimeout(function(){
                 console.log(alphabetArray[i]);
-     
+                $('#unselected').text(`${alphabetArray[i]}`)
                 if(alphabetArray[ind] == letter){
-                    // The letter we want
-                    console.log(letter);
+                    $('#random-generator').text(`${letter}`)
                      secondsTimer();
                      
                  }
@@ -213,9 +214,9 @@ function secondsTimer(){
     let time = 15;
     const myInterval = setInterval(function(){
         let sec = time --;
-        console.log(sec)
+        $('#timer').text(sec);
         if(sec <= 1){
-            console.log("stopped")
+            $('#timer').text("Time's out")
             clearInterval(myInterval);
         }
 
@@ -225,6 +226,10 @@ function secondsTimer(){
 //  UI LOGIC
 $(document).ready(function(){
     console.log('Hello world, jQuery works!')
+
+    $('#playButton').click(function(){
+        startGame();
+    })
 })
 
 
