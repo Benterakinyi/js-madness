@@ -201,7 +201,7 @@ function startGame(){
                      secondsTimer();
                      
                  }
-            }, 100 + (500 * ind));
+            }, 100 + (100 * ind));
         })(i);
      
      }
@@ -218,6 +218,10 @@ function secondsTimer(){
         if(sec <= 1){
             $('#timer').text("Time's out")
             clearInterval(myInterval);
+            $('#playButton').removeAttr('disabled');
+            $('#random-generator').html(`
+                <span id="unselected"></span>
+            `);
         }
 
     },1000)
@@ -229,6 +233,7 @@ $(document).ready(function(){
 
     $('#playButton').click(function(){
         startGame();
+        $(this).attr('disabled','true')
     })
 })
 
