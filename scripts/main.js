@@ -1,4 +1,5 @@
 // Business Logic
+let timmerIsRunning;
 function generateRandomLetter(){
     const number = Math.floor(Math.random()*Math.floor(26));
     return String.fromCharCode(65 + number);
@@ -38,7 +39,10 @@ function secondsTimer(){
     let time = 14;
     const myInterval = setInterval(function(){
         let sec = time --;
-        $('#timer').text(sec);
+        $('#timer').text(`00:${sec}`);
+        if(sec < 10){
+            $('#timer').text(`00:0${sec}`)
+        }
         if(sec <= 1){
             $('#timer').text("Time's out")
             clearInterval(myInterval);
@@ -60,7 +64,8 @@ function findLibraryMatch(answer){
 function determineCorrectness(lib){
     if(lib != undefined){
         if(lib.name.toLowerCase().startsWith(letter)){
-            $('#timer').html(`
+            $('#timer').hide()
+            $('#timer-holder').append(`
                 <span>&#10004;</span>
                 <p> Correct</p>
             `)
@@ -133,6 +138,7 @@ $(document).ready(function(){
     $('#playButton').click(function(){
         // $('.wrapper').remove();
         startGame();
+        
         $(this).attr('disabled','true')
     })
 
