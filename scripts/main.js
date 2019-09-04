@@ -6,16 +6,15 @@ function generateRandomLetter(){
 }
 
 
-const alphabetString = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z";
+const alphabetString = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
 const alphabetArray = alphabetString.split(',');
 const randomAlphabetArray = alphabetArray.sort(()=> Math.random() -0.5);
 
 var limit = alphabetArray.length-1;
 let letter;
 function startGame(){
-    letter = generateRandomLetter().toLowerCase();
+    letter = generateRandomLetter().toUpperCase();
     console.log(`letter: ${letter}`)
-   
     for (let i=0;i<=limit;i++) {
         (function(ind) {
          
@@ -23,7 +22,6 @@ function startGame(){
                 $('#unselected').text(`${randomAlphabetArray[i]}`)
                 if(randomAlphabetArray[ind] == letter){
                     $('#random-generator').text(`${letter}`)
-                    //  secondsTimer();
                     stopWatch.start();
                      
                  }
@@ -53,6 +51,7 @@ function StopWatch(){
                 $('#random-generator').html(`
                     <span id="unselected"></span>
                 `);
+                $('#answerbutton').attr('disabled','true')
                 this.reset()
             }
 
@@ -70,13 +69,13 @@ const stopWatch = new StopWatch();
 
 function findLibraryMatch(answer){
     return libraryArray.find((library)=>{
-        return library.name.toLowerCase() == answer;
+        return library.name.toUpperCase() == answer;
     })
 
 }
 function determineCorrectness(lib){
     if(lib != undefined){
-        if(lib.name.toLowerCase().startsWith(letter)){
+        if(lib.name.toUpperCase().startsWith(letter)){
             $('#timer').hide()
             $('#timer-holder').append(`
                 <div id="response">
@@ -179,12 +178,12 @@ $(document).ready(function(){
         $(`.wrapper`).remove();
         $('#answerinput').val('');
         startGame();
-        $('#answerbutton').removeAttr('disabled','true')
+        $('#answerbutton').removeAttr('disabled')
         $(this).attr('disabled','true')
     })
 
     $('#answerbutton').click(function(){
-        const answer = $('#answerinput').val().toLowerCase();
+        const answer = $('#answerinput').val().toUpperCase();
         const foundLib = findLibraryMatch(answer);
         determineCorrectness(foundLib);
         $(this).attr('disabled','true')
