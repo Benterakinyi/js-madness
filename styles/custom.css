@@ -79,6 +79,41 @@
 	font-size: 90px;
 }
 
+#timer{
+	font-size: 40px;
+}
+
+/* <---------Confete styling-------> */
+
+body {
+	margin: 0;
+	overflow: hidden;
+}
+
+.wrapper {
+	position: absolute;
+	min-height: 100vh;
+	min-width: 100%;
+	z-index: -1;
+}
+
+[class|="confetti"] {
+	position: absolute;
+}
+
+.red {
+	background-color: #E94A3F;
+}
+
+.yellow {
+ 	background-color: #FAA040;
+}
+
+.blue {
+	background-color: #5FC9F5;
+}
+
+ /* <-------Media queries------>*/
 
 @media(max-width:1000px){
     .content{
