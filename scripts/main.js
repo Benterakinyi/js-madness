@@ -23,7 +23,8 @@ function startGame(){
                 $('#unselected').text(`${randomAlphabetArray[i]}`)
                 if(randomAlphabetArray[ind] == letter){
                     $('#random-generator').text(`${letter}`)
-                     secondsTimer();
+                    //  secondsTimer();
+                    stopWatch.start();
                      
                  }
             }, 100 + (100 * ind));
@@ -33,27 +34,39 @@ function startGame(){
     
 }
 
-// startGame();
+function StopWatch(){
+    let duration = 14;
+    let second;
+    let myInterval;
+    // let started = false;
+    this.start = function(){
+        myInterval = setInterval(()=>{
+            second = duration--;
+            $('#timer').text(`00:${second}`);
+            if(second < 10){
+                $('#timer').text(`00:0${second}`)
+            }
+            if(second < 1){
+                $('#timer').text("You're out of Time And Outta Luck!")
+                clearInterval(myInterval);
+                $('#playButton').removeAttr('disabled');
+                $('#random-generator').html(`
+                    <span id="unselected"></span>
+                `);
+                this.reset()
+            }
 
-function secondsTimer(){
-    let time = 14;
-    const myInterval = setInterval(function(){
-        let sec = time --;
-        $('#timer').text(`00:${sec}`);
-        if(sec < 10){
-            $('#timer').text(`00:0${sec}`)
-        }
-        if(sec <= 1){
-            $('#timer').text("Time's out")
-            clearInterval(myInterval);
-            $('#playButton').removeAttr('disabled');
-            $('#random-generator').html(`
-                <span id="unselected"></span>
-            `);
-        }
-
-    },1000)
+        },1000)
+    }
+    this.stop = function(){
+        console.log(myInterval);
+        clearInterval(myInterval);
+    }
+    this.reset = function(){
+        duration = 14;
+    }
 }
+const stopWatch = new StopWatch();
 
 function findLibraryMatch(answer){
     return libraryArray.find((library)=>{
@@ -66,16 +79,38 @@ function determineCorrectness(lib){
         if(lib.name.toLowerCase().startsWith(letter)){
             $('#timer').hide()
             $('#timer-holder').append(`
-                <span>&#10004;</span>
-                <p> Correct</p>
+                <div id="response">
+                    <span>&#10004;</span>
+                    <p>Congratulations!</p>
+                </div>
             `)
             $('body').prepend(`<div class="wrapper"></div>`);
             displayConfete()
+            stopWatch.reset()
+            $('#playButton').removeAttr('disabled');
+            
         }else{
-            console.log('enter a lib that begins with the letter you were provided')
+            $('#timer').hide()
+            $('#timer-holder').append(`
+                <div id="response">
+                    <span>X</span>
+                    <p>The answer MUST begin with the generated letter</p>
+                </div>
+            `)
+            stopWatch.reset()
+            $('#playButton').removeAttr('disabled');
+            
         }
     }else{
-        console.log('failed')
+        $('#timer').hide()
+        $('#timer-holder').append(`
+            <div id="response">
+                <span>X</span>
+                <p>FAILED!</p>
+            </div>
+        `)
+        stopWatch.reset()
+        $('#playButton').removeAttr('disabled');
     }
 }
 
@@ -136,17 +171,24 @@ function displayConfete(){
 $(document).ready(function(){
 
     $('#playButton').click(function(){
-        // $('.wrapper').remove();
+        $('#random-generator').html(`
+        <span id="unselected"></span>
+    `);
+        $('#response').remove();
+        $('#timer').show().text(`00:15`)
+        $(`.wrapper`).remove();
+        $('#answerinput').val('');
         startGame();
-        
+        $('#answerbutton').removeAttr('disabled','true')
         $(this).attr('disabled','true')
     })
 
     $('#answerbutton').click(function(){
         const answer = $('#answerinput').val().toLowerCase();
-        console.log(answer);
         const foundLib = findLibraryMatch(answer);
         determineCorrectness(foundLib);
+        $(this).attr('disabled','true')
+        stopWatch.stop()
     })
 
 
