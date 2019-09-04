@@ -1,3 +1,7 @@
+@font-face{
+ font-family:'digital-clock-font';
+ src: url('/styles/digital-7.ttf');
+}
 .jumbotron{
     margin-right: 15%; 
     margin-left:15%; 
@@ -81,7 +85,8 @@
 }
 
 #timer{
-	font-size: 40px;
+	font-size: 70px;
+	font-family:'digital-clock-font';
 }
 
 /* <---------Confete styling-------> */

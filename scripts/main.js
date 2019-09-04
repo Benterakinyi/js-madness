@@ -45,7 +45,14 @@ function StopWatch(){
                 $('#timer').text(`00:0${second}`)
             }
             if(second < 1){
-                $('#timer').text("You're out of Time And Outta Luck!")
+                // $('#timer').text("You're out of Time And Outta Luck!")
+                $('#timer').hide()
+                $('#timer-holder').append(`
+                    <div id="response">
+                        <p>You're out of Time And Outta Luck!</p>
+                    </div>
+                `)
+
                 clearInterval(myInterval);
                 $('#playButton').removeAttr('disabled');
                 $('#random-generator').html(`
