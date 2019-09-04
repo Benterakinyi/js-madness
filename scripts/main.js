@@ -45,7 +45,6 @@ function StopWatch(){
                 $('#timer').text(`00:0${second}`)
             }
             if(second < 1){
-                // $('#timer').text("You're out of Time And Outta Luck!")
                 $('#timer').hide()
                 $('#timer-holder').append(`
                     <div id="response">
@@ -94,6 +93,7 @@ function determineCorrectness(lib){
             displayConfete()
             stopWatch.reset()
             $('#playButton').removeAttr('disabled');
+            displayFacts();
             
         }else{
             $('#timer').hide()
@@ -169,6 +169,17 @@ function displayConfete(){
             drop(x);             
         });
     }
+}
+
+function displayFacts(libraryName,message){
+    $('.header').after(`
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    `)
 }
 
 

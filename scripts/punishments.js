@@ -1,10 +1,9 @@
-var punishments = ["Call a random number and try to flirt with the person who picks up.",
+var punishments = [
+    "Call a random number and try to flirt with the person who picks up.",
     "Do 10 pushups.",
-    "Sing everything you say for the rest of the game.",
     "Sing everything you say for the rest of the game.",
     "Trade clothes with the person next to you.",
     "Give everyone in the room a hug.",
-    "Do as many squats as you can",
     "sing like an opera singer",
     "For the next 15 minutes, everything you say must be spoken in baby talk",
     "Do 50 situps.",
