@@ -104,7 +104,8 @@ function determineCorrectness(lib){
                 </div>
             `)
             stopWatch.reset()
-            $('#playButton').removeAttr('disabled');
+            $('#playButton').removeAttr('disabled'); 
+            displayPunishment()
             
         }
     }else{
@@ -117,6 +118,7 @@ function determineCorrectness(lib){
         `)
         stopWatch.reset()
         $('#playButton').removeAttr('disabled');
+        displayPunishment()
     }
 }
 
@@ -173,10 +175,24 @@ function displayConfete(){
 
 function displayFacts(message){
     $('.header').after(`
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <div class="alert alert-warning alert-dismissible fade show fact-alert" role="alert">
             <strong><img class="bulb"src='../Resources/bulb.png' alt="bulb"></img></>Did you Know?</strong>
             <hr>
             <span class=""lead>${message}</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    `)
+}
+function displayPunishment(){
+    let index = Math.floor(Math.random() * 10); 
+    const punishment = punishments[index];
+    $('.header').after(`
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong><img class="gavel" src='../Resources/gavel.png' alt="bulb"></img></>Its time to receive your punishment!!</strong>
+            <hr>
+            <span class=""lead>${punishment}</span>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

@@ -118,7 +118,7 @@ body {
 .blue {
 	background-color: #5FC9F5;
 }
-.alert{
+.fact-alert{
 	background-color: rgba(0,0,0,0.5);
 	color:white;
 }
@@ -134,6 +134,12 @@ body {
 .bulb{
 	width:30px;
 	height:auto;
+}
+.gavel{
+	color:white;
+	width: 30px;
+	height:auto;
+	/* background-color: #ffffff; */
 }
  /* <-------Media queries------>*/
 
