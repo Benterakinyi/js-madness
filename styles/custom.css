@@ -1,4 +1,8 @@
-landing page styling
+html {
+	scroll-behavior: smooth;
+  }
+
+/* landing page styling */
 html{
 	-moz-animation-direction: alternate;
   }
