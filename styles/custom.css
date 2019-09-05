@@ -1,9 +1,28 @@
-.jumbotron{
-    margin-right: 15%; 
-    margin-left:15%; 
-    margin-top:5%
-}
+landing page styling
+html{
+	-moz-animation-direction: alternate;
+  }
+.landing{
+	text-align: center;
+	padding-top: 2%; 
+	padding-bottpm: 7%; 
+	font-family: 'Gabriela', serif;
+	height: 1500px;
+  }
 
+
+
+
+.jumbotron{
+    margin-right: 20%; 
+    margin-left:22%; 
+    margin-top:5%
+} 
+
+
+body {
+	background-color: rgb(255, 235, 168);
+	}
 #playButton {
 	-moz-box-shadow: 0px 0px 0px 2px #9fb4f2;
 	-webkit-box-shadow: 0px 0px 0px 2px #9fb4f2;
