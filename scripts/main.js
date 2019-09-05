@@ -93,7 +93,7 @@ function determineCorrectness(lib){
             displayConfete()
             stopWatch.reset()
             $('#playButton').removeAttr('disabled');
-            displayFacts();
+            displayFacts(lib.fact);
             
         }else{
             $('#timer').hide()
@@ -171,10 +171,12 @@ function displayConfete(){
     }
 }
 
-function displayFacts(libraryName,message){
+function displayFacts(message){
     $('.header').after(`
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <strong><img class="bulb"src='../Resources/bulb.png' alt="bulb"></img></>Did you Know?</strong>
+            <hr>
+            <span class=""lead>${message}</span>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

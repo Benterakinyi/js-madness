@@ -1,6 +1,6 @@
 @font-face{
  font-family:'digital-clock-font';
- src: url(/styles/digital-7.ttf);
+ src: url('../Resources/digital-7.ttf');
 }
 /* .jumbotron{
     margin-right: 15%; 
@@ -131,7 +131,10 @@ body {
 .content{
 	margin-top: 100px;
 }
-
+.bulb{
+	width:30px;
+	height:auto;
+}
  /* <-------Media queries------>*/
 
 @media(max-width:1000px){
