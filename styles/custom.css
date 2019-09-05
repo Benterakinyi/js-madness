@@ -1,13 +1,27 @@
+html {
+	scroll-behavior: smooth;
+  }
+
+/* landing page styling */
+html{
+	-moz-animation-direction: alternate;
+  }
+.landing{
+	text-align: center;
+	padding-top: 2%; 
+	padding-bottpm: 7%; 
+	font-family: 'Gabriela', serif;
+	height: 1500px;
+  }
+
 @font-face{
  font-family:'digital-clock-font';
  src: url('../Resources/digital-7.ttf');
 }
-/* .jumbotron{
-    margin-right: 15%; 
-    margin-left:15%; 
-	margin-top:5%;
-} */
 
+body {
+	background-color: rgb(255, 235, 168);
+	}
 #playButton {
 	-moz-box-shadow: 0px 0px 0px 2px #9fb4f2;
 	-webkit-box-shadow: 0px 0px 0px 2px #9fb4f2;
@@ -82,6 +96,11 @@
 #random-generator{
 	padding-top: 10px;
 	font-size: 90px;
+	background:-moz-linear-gradient(top, #6bdcf8 5%, #a4c9f7 100%);
+	background:-webkit-linear-gradient(top, #70f7f0 5%, #62a9ff 100%);
+	background:-o-linear-gradient(top, #85c1e9 5%, #8cc0ff 100%);
+	background:-ms-linear-gradient(top, #3ef7f7 5%, #476e9e 100%);
+	background:linear-gradient(to bottom, #4affba 5%, #88adff 100%);
 }
 
 #timer{
@@ -151,4 +170,9 @@ body {
     }
 }
 
+h1{
+   font-family: 'Permanent Marker', cursive;
+   font-size: 58px;
+
+}
 
