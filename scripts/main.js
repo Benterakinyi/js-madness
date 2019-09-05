@@ -255,11 +255,12 @@ function findLibraryMatch(answer){
 function determineCorrectness(lib){
     if(lib != undefined){
         if(lib.name.toUpperCase().startsWith(letter)){
+
             $('#timer').hide()
             $('#timer-holder').append(`
                 <div id="response">
-                    <span>&#10004;</span>
-                    <p>Congratulations!</p>
+                    <span >&#10004;</span>
+                    <p style="font-weight: bold; color:#07d93f; font-size:42px">Congratulations!</p>
                 </div>
             `)
             $('body').prepend(`<div class="wrapper"></div>`);
@@ -286,7 +287,7 @@ function determineCorrectness(lib){
         $('#timer-holder').append(`
             <div id="response">
                 <span>X</span>
-                <p>FAILED!</p>
+                <p style="font-weight: bold; color:#FF0000; font-size:42px>FAILED!</p>
             </div>
         `)
         stopWatch.reset()
