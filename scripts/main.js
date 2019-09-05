@@ -48,7 +48,7 @@ function StopWatch(){
                 $('#timer').hide()
                 $('#timer-holder').append(`
                     <div id="response">
-                        <p>You're out of Time And Outta Luck!</p>
+                        <p>You're out of Time!</p>
                     </div>
                 `)
 
@@ -59,6 +59,7 @@ function StopWatch(){
                 `);
                 $('#answerbutton').attr('disabled','true')
                 this.reset()
+                displayPunishment()
             }
 
         },1000)

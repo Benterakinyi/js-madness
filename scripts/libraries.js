@@ -154,7 +154,7 @@ const libraryArray = [
         fact:"Webix is an easy-to-use javascript framework which you can use to build a rich UI with just few lines of code"
     },{
         name:"xeditable",
-        fact:"This library allows you to create editable elements on your page."
+        fact:"Xeditable library allows you to create editable elements on your page."
     },{
         name:"zepto",
         fact:"Zepto.js is a minimalist JavaScript library for modern browsers with a largely jQuery-compatible API. If you use jQuery, you already know how to use Zepto."
