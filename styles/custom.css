@@ -1,8 +1,12 @@
-.jumbotron{
+@font-face{
+ font-family:'digital-clock-font';
+ src: url('../Resources/digital-7.ttf');
+}
+/* .jumbotron{
     margin-right: 15%; 
     margin-left:15%; 
-    margin-top:5%
-}
+	margin-top:5%;
+} */
 
 #playButton {
 	-moz-box-shadow: 0px 0px 0px 2px #9fb4f2;
@@ -72,7 +76,7 @@
 }
 .content > div{
 	min-width: 200px;
-	max-width: 200px;
+	max-width: 300px;
 }
 
 #random-generator{
@@ -81,14 +85,15 @@
 }
 
 #timer{
-	font-size: 40px;
+	font-size: 70px;
+	font-family:'digital-clock-font';
 }
 
 /* <---------Confete styling-------> */
 
 body {
 	margin: 0;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 .wrapper {
@@ -113,7 +118,29 @@ body {
 .blue {
 	background-color: #5FC9F5;
 }
-
+.fact-alert{
+	background-color: rgba(0,0,0,0.5);
+	color:white;
+}
+.layout{
+	display:flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+}
+.content{
+	margin-top: 100px;
+}
+.bulb{
+	width:30px;
+	height:auto;
+}
+.gavel{
+	color:white;
+	width: 30px;
+	height:auto;
+	/* background-color: #ffffff; */
+}
  /* <-------Media queries------>*/
 
 @media(max-width:1000px){

@@ -185,16 +185,15 @@ function generateRandomLetter(){
 }
 
 
-const alphabetString = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z";
+const alphabetString = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z";
 const alphabetArray = alphabetString.split(',');
 const randomAlphabetArray = alphabetArray.sort(()=> Math.random() -0.5);
 
 var limit = alphabetArray.length-1;
 let letter;
 function startGame(){
-    letter = generateRandomLetter().toLowerCase();
+    letter = generateRandomLetter().toUpperCase();
     console.log(`letter: ${letter}`)
-   
     for (let i=0;i<=limit;i++) {
         (function(ind) {
          
@@ -202,7 +201,6 @@ function startGame(){
                 $('#unselected').text(`${randomAlphabetArray[i]}`)
                 if(randomAlphabetArray[ind] == letter){
                     $('#random-generator').text(`${letter}`)
-                    //  secondsTimer();
                     stopWatch.start();
                      
                  }
@@ -226,12 +224,19 @@ function StopWatch(){
                 $('#timer').text(`00:0${second}`)
             }
             if(second < 1){
-                $('#timer').text("You're out of Time And Outta Luck!")
+                $('#timer').hide()
+                $('#timer-holder').append(`
+                    <div id="response">
+                        <p>You're out of Time And Outta Luck!</p>
+                    </div>
+                `)
+
                 clearInterval(myInterval);
                 $('#playButton').removeAttr('disabled');
                 $('#random-generator').html(`
                     <span id="unselected"></span>
                 `);
+                $('#answerbutton').attr('disabled','true')
                 this.reset()
             }
 
@@ -249,13 +254,13 @@ const stopWatch = new StopWatch();
 
 function findLibraryMatch(answer){
     return libraryArray.find((library)=>{
-        return library.name.toLowerCase() == answer;
+        return library.name.toUpperCase() == answer;
     })
 
 }
 function determineCorrectness(lib){
     if(lib != undefined){
-        if(lib.name.toLowerCase().startsWith(letter)){
+        if(lib.name.toUpperCase().startsWith(letter)){
             $('#timer').hide()
             $('#timer-holder').append(`
                 <div id="response">
@@ -267,6 +272,7 @@ function determineCorrectness(lib){
             displayConfete()
             stopWatch.reset()
             $('#playButton').removeAttr('disabled');
+            displayFacts(lib.fact);
             
         }else{
             $('#timer').hide()
@@ -277,7 +283,8 @@ function determineCorrectness(lib){
                 </div>
             `)
             stopWatch.reset()
-            $('#playButton').removeAttr('disabled');
+            $('#playButton').removeAttr('disabled'); 
+            displayPunishment()
             
         }
     }else{
@@ -290,6 +297,7 @@ function determineCorrectness(lib){
         `)
         stopWatch.reset()
         $('#playButton').removeAttr('disabled');
+        displayPunishment()
     }
 }
 
@@ -344,6 +352,33 @@ function displayConfete(){
     }
 }
 
+function displayFacts(message){
+    $('.header').after(`
+        <div class="alert alert-warning alert-dismissible fade show fact-alert" role="alert">
+            <strong><img class="bulb"src='../Resources/bulb.png' alt="bulb"></img></>Did you Know?</strong>
+            <hr>
+            <span class=""lead>${message}</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    `)
+}
+function displayPunishment(){
+    let index = Math.floor(Math.random() * 10); 
+    const punishment = punishments[index];
+    $('.header').after(`
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong><img class="gavel" src='../Resources/gavel.png' alt="bulb"></img></>Its time to receive your punishment!!</strong>
+            <hr>
+            <span class=""lead>${punishment}</span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    `)
+}
+
 
 
 //  UI LOGIC
@@ -358,12 +393,12 @@ $(document).ready(function(){
         $(`.wrapper`).remove();
         $('#answerinput').val('');
         startGame();
-        $('#answerbutton').removeAttr('disabled','true')
+        $('#answerbutton').removeAttr('disabled')
         $(this).attr('disabled','true')
     })
 
     $('#answerbutton').click(function(){
-        const answer = $('#answerinput').val().toLowerCase();
+        const answer = $('#answerinput').val().toUpperCase();
         const foundLib = findLibraryMatch(answer);
         determineCorrectness(foundLib);
         $(this).attr('disabled','true')
