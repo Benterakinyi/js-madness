@@ -171,12 +171,10 @@ const libraryArray = [{
     }, {
         name: "Hyperapp",
         fact: "The tiny framework for building web interfaces.",
-<<<<<<< HEAD
-    }, {
-=======
     },
         {
->>>>>>> upstream/development
+    },
+        {
             name: "next",
             fact: " is used for light-weight framework for static and server rendering applications,"
     

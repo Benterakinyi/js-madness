@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 const librayarray = [
     {
         name: "next",
@@ -170,14 +168,10 @@ const librayarray = [
         name:"Perfect Scrollbar",
         
         fact:" its tiny but perfect jQuery scrollbar plugin", 
-    },
+    }
 
-    ]
+]
 
-
-=======
->>>>>>> upstream/development
-// Business Logic
 let timmerIsRunning;
 function generateRandomLetter(){
     const number = Math.floor(Math.random()*Math.floor(26));
