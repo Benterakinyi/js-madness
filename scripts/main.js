@@ -90,7 +90,7 @@ function determineCorrectness(lib){
                     <p style="font-weight: bold; color:#07d93f; font-size:42px">Congratulations!</p>
                 </div>
             `)
-            $('body').prepend(`<div class="wrapper"></div>`);
+            $('#page2').prepend(`<div class="wrapper"></div>`);
             displayConfete()
             stopWatch.reset()
             $('#playButton').removeAttr('disabled');
@@ -100,8 +100,8 @@ function determineCorrectness(lib){
             $('#timer').hide()
             $('#timer-holder').append(`
                 <div id="response">
-                    <span>X</span>
-                    <p>The answer MUST begin with the generated letter</p>
+                    <span style="color:red; font-size:25px;">X</span>
+                    <p style="font-weight: bold; color:#FF0000; font-size:15px">The answer MUST begin with the generated letter</p>
                 </div>
             `)
             stopWatch.reset()
@@ -113,8 +113,8 @@ function determineCorrectness(lib){
         $('#timer').hide()
         $('#timer-holder').append(`
             <div id="response">
-                <span>X</span>
-                <p style="font-weight: bold; color:#FF0000; font-size:42px>FAILED!</p>
+                <span style="color:red; font-size:25px;">X</span>
+                <p style="font-weight: bold; color:#FF0000; font-size:42px">FAILED!</p>
             </div>
         `)
         stopWatch.reset()
@@ -175,7 +175,7 @@ function displayConfete(){
 }
 
 function displayFacts(message){
-    $('.header').after(`
+    $('#page2').prepend(`
         <div class="alert alert-warning alert-dismissible fade show fact-alert" role="alert">
             <strong><img class="bulb" src='Resources/bulb.png' alt="bulb"></img></>Did you Know?</strong>
             <hr>
@@ -189,7 +189,7 @@ function displayFacts(message){
 function displayPunishment(){
     let index = Math.floor(Math.random() * 10); 
     const punishment = punishments[index];
-    $('.header').after(`
+    $('#page2').prepend(`
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong><img class="gavel" src='Resources/gavel.png' alt="bulb"></img></>Its time to receive your punishment!!</strong>
             <hr>

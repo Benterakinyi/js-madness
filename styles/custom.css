@@ -1,27 +1,56 @@
+/* <---------General Styles----------> */
+body {
+	margin: 0;
+	overflow-x: hidden;
+}
 html {
 	scroll-behavior: smooth;
-  }
-
-/* landing page styling */
-html{
-	-moz-animation-direction: alternate;
-  }
-.landing{
-	text-align: center;
-	padding-top: 2%; 
-	padding-bottpm: 7%; 
-	font-family: 'Gabriela', serif;
-	height: 1500px;
-  }
-
-@font-face{
- font-family:'digital-clock-font';
- src: url('../Resources/digital-7.ttf');
 }
 
-body {
+@font-face{
+	font-family:'digital-clock-font';
+	src: url('../Resources/digital-7.ttf');
+}
+
+h1{
+	font-family: 'Permanent Marker', cursive;
+	font-size: 58px;
+ 
+ }
+
+/* landing page styling */
+
+.landing{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Gabriela', serif;
 	background-color: rgb(255, 235, 168);
-	}
+	height: 100vh;
+}
+
+/* <---------Game Page----------> */
+.layout{
+	display:flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height:100vh;
+	position: relative;
+}
+.content{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+	align-items: center;
+	position: relative;
+}
+.content > div{
+	min-width: 200px;
+	max-width: 300px;
+}
 #playButton {
 	-moz-box-shadow: 0px 0px 0px 2px #9fb4f2;
 	-webkit-box-shadow: 0px 0px 0px 2px #9fb4f2;
@@ -64,13 +93,6 @@ body {
 	top:1px;
 }
 
-.content{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
 #answer{
     display: flex;
     justify-content: space-between;
@@ -88,10 +110,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-.content > div{
-	min-width: 200px;
-	max-width: 300px;
-}
 
 #random-generator{
 	padding-top: 10px;
@@ -108,18 +126,30 @@ body {
 	font-family:'digital-clock-font';
 }
 
-/* <---------Confete styling-------> */
-
-body {
-	margin: 0;
-	overflow-x: hidden;
+.fact-alert{
+	background-color: rgba(0,0,0,0.5);
+	color:white;
 }
+.bulb{
+	width:30px;
+	height:auto;
+}
+.gavel{
+	color:white;
+	width: 30px;
+	height:auto;
+}
+
+/* <---------Confete styling-------> */
 
 .wrapper {
 	position: absolute;
 	min-height: 100vh;
 	min-width: 100%;
 	z-index: -1;
+	overflow: hidden;
+
+
 }
 
 [class|="confetti"] {
@@ -137,30 +167,7 @@ body {
 .blue {
 	background-color: #5FC9F5;
 }
-.fact-alert{
-	background-color: rgba(0,0,0,0.5);
-	color:white;
-}
-.layout{
-	display:flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: center;
-}
-.content{
-	margin-top: 100px;
-}
-.bulb{
-	width:30px;
-	height:auto;
-}
-.gavel{
-	color:white;
-	width: 30px;
-	height:auto;
-	/* background-color: #ffffff; */
-}
- /* <-------Media queries------>*/
+
 
 @media(max-width:1000px){
     .content{
@@ -170,9 +177,5 @@ body {
     }
 }
 
-h1{
-   font-family: 'Permanent Marker', cursive;
-   font-size: 58px;
 
-}
 
