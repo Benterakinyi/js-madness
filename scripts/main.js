@@ -36,7 +36,6 @@ function StopWatch(){
     let duration = 14;
     let second;
     let myInterval;
-    // let started = false;
     this.start = function(){
         myInterval = setInterval(()=>{
             second = duration--;
@@ -227,17 +226,6 @@ $(document).ready(function(){
         $(this).attr('disabled','true')
         stopWatch.stop()
     })
-
-
-
-
-
-
-
-
-
-
-
 
 })
 
