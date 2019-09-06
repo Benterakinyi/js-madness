@@ -209,7 +209,6 @@ function StopWatch(){
     let duration = 14;
     let second;
     let myInterval;
-    // let started = false;
     this.start = function(){
         myInterval = setInterval(()=>{
             second = duration--;
@@ -221,7 +220,7 @@ function StopWatch(){
                 $('#timer').hide()
                 $('#timer-holder').append(`
                     <div id="response">
-                        <p>You're out of Time And Outta Luck!</p>
+                        <p>You're out of Time!</p>
                     </div>
                 `)
 
@@ -232,6 +231,7 @@ function StopWatch(){
                 `);
                 $('#answerbutton').attr('disabled','true')
                 this.reset()
+                displayPunishment()
             }
 
         },1000)
@@ -401,6 +401,26 @@ $(document).ready(function(){
     })
 
 
+
+
+
+ 
+mybutton = document.getElementById("myBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
+}
 
 
 
